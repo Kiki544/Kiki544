@@ -19,9 +19,13 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Rebuild header and activity SVGs
+      - name: Rebuild header, activity, stats and curve SVGs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python scripts/build_activity.py "${{ github.repository_owner }}"
+          python scripts/build_stats.py "${{ github.repository_owner }}"
+          python scripts/build_curve.py "${{ github.repository_owner }}"
           python scripts/build_header.py "${{ github.repository_owner }}"
 
       - name: Commit if anything changed
@@ -33,4 +37,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -am "Refresh activity graph"
+          git pull --rebase
           git push

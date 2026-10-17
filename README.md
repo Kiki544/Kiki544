@@ -30,6 +30,13 @@ One leaf photo, one diagnosis.
 
 Upload a photo of a tomato leaf and the model names what it sees: bacterial spot, early blight, yellow leaf curl virus, mosaic virus, or a healthy leaf. The Keras model sits behind a FastAPI service with a React front end, ready to deploy on Render.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/fig-leaf-dark.svg">
+  <img src="assets/fig-leaf-light.svg" width="880" alt="Animated figure: a photo of a tomato leaf is scanned, three lesions are boxed, and five disease classes race until early blight wins at 0.92.">
+</picture>
+
+<sub>Leaf photo: [Clemson University – USDA Cooperative Extension Slide Series, Bugwood.org](https://commons.wikimedia.org/wiki/File:Alternaria_solani_-_leaf_lesions.jpg), licensed [CC BY 3.0 US](https://creativecommons.org/licenses/by/3.0/us/), cropped. The probabilities are an illustration, not a live prediction.</sub>
+
 ## 02 / Software people use
 
 ### [EliteClub test site](https://github.com/Kiki544/EliteClub)
@@ -54,6 +61,13 @@ A Python bot that sells proxies. It takes card payments through Stripe and USDT 
 
 ## 03 / The work, over time
 
+If my career were a model, this would be its training curve. Loss drops with every public contribution, flat stretches are plateaus, and each dot is a project.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/fig-curve-dark.svg">
+  <img src="assets/fig-curve-light.svg" width="880" alt="Fig. 4: a training curve where loss falls as public contributions add up, with a long plateau and projects marked at the dates they were created.">
+</picture>
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/activity-dark.svg">
   <img src="assets/activity-light.svg" width="880" alt="Kiki's public GitHub contributions over the last 12 months, with totals by year.">
@@ -61,10 +75,15 @@ A Python bot that sells proxies. It takes card payments through Stripe and USDT 
 
 Every square is a day of public contributions on GitHub. The outlined square is the busiest day.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg">
+  <img src="assets/stats-light.svg" width="880" alt="Total contributions, current and longest streak, and most used languages across public repositories.">
+</picture>
+
 <details>
 <summary>How this graph is made</summary>
 
-[`scripts/build_activity.py`](scripts/build_activity.py) reads my public contribution calendar and draws it as an SVG, in light and dark versions. A GitHub Action reruns it every Monday, so the snapshot date on the graph shows how fresh it is. Private work isn't counted.
+[`scripts/build_activity.py`](scripts/build_activity.py) reads my public contribution calendar and draws it as an SVG, in light and dark versions. [`scripts/build_stats.py`](scripts/build_stats.py) works out the streaks from the same calendar and adds up languages across my own public repositories. [`scripts/build_curve.py`](scripts/build_curve.py) turns the running total of contributions into the training curve. A GitHub Action reruns it every Monday, so the snapshot date on the graph shows how fresh it is. Private work isn't counted.
 
 </details>
 
